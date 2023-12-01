@@ -9,9 +9,3 @@ export interface IControllerRoute {
 }
 
 export type ExpressReturnType = Response<any, Record<string, any>>;
-
-/**
- * keyof - можно преобразовать ключи объекта в типы
- * Pick<Интерфейс, значения> - утилитарный тип, который берет из интерфейса значения и создает их них новый интерфейс
- * <Router, 'get' | 'post' | 'delete' | 'put' | 'patch'> -
- */

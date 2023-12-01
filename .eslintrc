@@ -1,31 +1,30 @@
 {
-  "root": true, // корень проекта
-  "parser": "@typescript-eslint/parser", // будем использовать TS парсер
+  "root": true,
+  "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint"
   ],
-  "extends": [ // рекомендованные дефолтные настройки
+  "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
-  "rules": { // это те правила, которые меняем
-    "no-empty-function": "off", // может понадобиться
-    "@typescript-eslint/ban-types": "off", // разрешено использовать {}, Object вместо длинных вариантов
-    "@typescript-eslint/no-unused-vars": [ // разрешает оставлять висящие (неиспользованные) объекты. Это нужно для однообразной сигнары типо next функций
+  "rules": {
+    "no-empty-function": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-unused-vars": [
       "off"
     ],
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/explicit-function-return-type": [ // явно указывать у функции, что она возвращает. Помогает понимает, что где-то что-то не так вернули, позволяет быстрее отлавливать ошибки
+    "@typescript-eslint/explicit-function-return-type": [
       "warn"
     ],
     "prettier/prettier": [
-      "error", // уровень error для следующих настроек
-      { // это всё, что повторяется в .prettierrc
+      "error",
+      {
         "singleQuote": true,
         "trailingComma": "all",
-        // "useTabs": true,
         "semi": true,
         "bracketSpacing": true,
         "printWidth": 100,

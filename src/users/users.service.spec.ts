@@ -9,7 +9,6 @@ import { ConfigService } from '../config/config.service';
 import { User } from './user.entity';
 import { UserModel } from '@prisma/client';
 
-/* Нужно замокать некоторые элементы нашего конфиг сервиса, чтобы не поднимать весь сервис */
 const configServiceMock: IConfigService = {
   get: jest.fn(),
 };
@@ -32,7 +31,7 @@ beforeAll(() => {
   configService = container.get<IConfigService>(TYPES.IConfigService);
   userRepository = container.get<IUserRepository>(TYPES.IUserRepository);
   userService = container.get<IUserService>(TYPES.IUserService);
-}); // выполняет перед каждым тестом. Частично собирает сервис, не запуская всё приложение
+});
 
 let createdUser: UserModel | null;
 

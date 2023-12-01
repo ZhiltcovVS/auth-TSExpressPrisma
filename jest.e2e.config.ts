@@ -1,7 +1,7 @@
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
-  verbose: true, // Чтобы выдеть детально output
+  verbose: true,
   preset: 'ts-jest',
   testRegex: '.e2e-spec.ts$',
 };

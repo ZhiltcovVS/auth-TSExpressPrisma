@@ -21,8 +21,7 @@ export class UserController extends BaseController implements IUserController {
     @inject(TYPES.IUserService) private userService: IUserService,
     @inject(TYPES.IConfigService) private configService: IConfigService,
   ) {
-    // добавляем потому что в абстракции прописано, что мы здесь должны получить логгер типа LoggerService
-    super(loggerService); // т.к. мы екстендим класс, нужно вызвать supper и передать туда
+    super(loggerService);
     this.bindRoutes([
       {
         path: '/register',

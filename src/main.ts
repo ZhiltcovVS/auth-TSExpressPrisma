@@ -20,22 +20,21 @@ export interface IBootstrapReturn {
   appContainer: Container;
 }
 
-// Здесь определяем модуль, в котором делаем все необходимые биндинги
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
-  bind<ILogger>(TYPES.ILogger).to(LoggerService).inSingletonScope(); // биндим типы
-  bind<IExeptionFilter>(TYPES.IExeptionFilter).to(ExeptionFilter); // биндим типы
-  bind<IUserController>(TYPES.UserController).to(UserController); // биндим типы
-  bind<IUserService>(TYPES.IUserService).to(UserService); // биндим типы
-  bind<IConfigService>(TYPES.IConfigService).to(ConfigService).inSingletonScope(); // биндим типы
-  bind<PrismaService>(TYPES.PrismaService).to(PrismaService).inSingletonScope(); // биндим типы
-  bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository).inSingletonScope(); // биндим типы
-  bind<App>(TYPES.Application).to(App); // биндим типы
+  bind<ILogger>(TYPES.ILogger).to(LoggerService).inSingletonScope();
+  bind<IExeptionFilter>(TYPES.IExeptionFilter).to(ExeptionFilter);
+  bind<IUserController>(TYPES.UserController).to(UserController);
+  bind<IUserService>(TYPES.IUserService).to(UserService);
+  bind<IConfigService>(TYPES.IConfigService).to(ConfigService).inSingletonScope();
+  bind<PrismaService>(TYPES.PrismaService).to(PrismaService).inSingletonScope();
+  bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository).inSingletonScope();
+  bind<App>(TYPES.Application).to(App);
 });
 
 async function bootstrap(): Promise<IBootstrapReturn> {
   const appContainer = new Container();
-  appContainer.load(appBindings); // загружаем модуль в контейнер
-  const app = appContainer.get<App>(TYPES.Application); // получаем инстанс App, который был забинжен
+  appContainer.load(appBindings);
+  const app = appContainer.get<App>(TYPES.Application);
   await app.init();
   return { appContainer, app };
 }

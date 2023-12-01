@@ -26,5 +26,3 @@ export class LoggerService implements ILogger {
     this.logger.warn(...args);
   }
 }
-
-// Logger<ILogObj> - ILogObj - это интерфейс который описывает какие могут быть типы(свойства) у Logger
